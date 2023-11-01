@@ -2,15 +2,27 @@
 
 {% block page_title %}Capt. McGillicutty's Ship's Log{% endblock %}
 
+
+{% block page_description %}A series of blog posts from Capt. McGillicutty's time at sea. {% endblock %}
+
 {% block content %}
- <div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2">
         <h1>A pirate's life is for me</h1>
         <p>Hempen halter mizzenmast deadlights gaff pillage starboard jack lee Blimey draught. Man-of-war piracy black jack sutler Yellow Jack keel provost overhaul execution dock rigging. Log quarterdeck dead men tell no tales red ensign gibbet grog blossom bilge Nelsons folly code of conduct gunwalls.</p>
+        <div class="blog-list">
+          {% for blog in blog.blogs %}
+            <div class="blog-entry">
+              <h3>{{ blog.headline }}</h3>
+              <h5>{{ blog.date }}</h5>
+              <a href="blog/{{ blog.slug }}.html" target="_blank">Read more</a>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
-
 {% endblock %}
+
 
